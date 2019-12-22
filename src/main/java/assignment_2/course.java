@@ -18,6 +18,9 @@ public class course {
 		this.name = name;
 		this.start_date = start_date;
 		this.end_date = end_date;
+		
+		modules = new LinkedList<module>();
+		students = new LinkedList<student>();
 	}
 	
 	// Accessor methods

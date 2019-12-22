@@ -2,13 +2,16 @@ package assignment_2;
 
 import java.util.LinkedList;
 import org.joda.time.DateTime;
+import org.joda.time.Years;
 
 public class student {
 
 	private String name;
 	private int ID;
-	private int age;
+	private Years age;
 	private DateTime dob;
+	private DateTime current = new DateTime(2019, 12, 22, 9, 0, 0);
+	
 	private String username;
 	
 	private LinkedList<course> courses;
@@ -17,10 +20,11 @@ public class student {
 	public student(String name, int ID, DateTime dob) 
 	{
 		this.name = name;
+		this.ID = ID;
 		this.dob = dob;
 		
-		//age = date.now - dob (something like this)
-		username = name + dob;
+		age =  Years.yearsBetween(current, dob);
+		username = name + age.toString();
 		
 		courses = new LinkedList<course>();
 		modules = new LinkedList<module>();
@@ -38,7 +42,7 @@ public class student {
 		return ID;
 	}
 
-	public int get_age() 
+	public Years get_age() 
 	{
 		return age;
 	}
@@ -78,7 +82,7 @@ public class student {
 	public void set_dob(DateTime dob) 
 	{
 		this.dob = dob;
-		//age = date.now - dob (something like this)
+		age =  Years.yearsBetween(current, dob);
 	}
 	
 	public void add_course(course course) 
