@@ -58,7 +58,7 @@ public class module {
 		students.add(student);
 	}
 	
-	public void add_linked_courses(course course) 
+	public void add_linked_course(course course) 
 	{
 		linked_courses.add(course);
 	}
